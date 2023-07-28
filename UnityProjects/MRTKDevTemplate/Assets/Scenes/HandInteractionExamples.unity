@@ -2802,9 +2802,9 @@ MonoBehaviour:
 
 
     PressableButtons
-    use StatefulInteractable''s selection progress to model the compressability of a 3D
-    pressable surface. These interactables drive selection progress through a combination
-    of any number of interactors.'
+    use StatefulInteractable''s selection progress to model the compressability of
+    a 3D pressable surface. These interactables drive selection progress through
+    a combination of any number of interactors.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 533bdd8d5c92b52448ee2ecf7bd828a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b082f80c6b45164418a354f7e116f0a3, type: 2}
@@ -6496,13 +6496,14 @@ MonoBehaviour:
 
 
     <size=8>Dynamic
-    visual feedback based on the amount of pinch gesture (selection progress) using StateVisualizer''s
-    ''Playback Time Matches Value''. Hover highlight is activated by MeshOutline
-    script.
+    visual feedback based on the amount of pinch gesture (selection progress) using
+    StateVisualizer''s ''Playback Time Matches Value''. Hover highlight is activated
+    by MeshOutline script.
 
 
-    <color=#FF9E00>ObjectManipulator.cs</color> allows for the intuitive
-    manipulation of objects using near grab, far ray, and gaze + pinch manipulation.</size>'
+    <color=#FF9E00>ObjectManipulator.cs</color> allows
+    for the intuitive manipulation of objects using near grab, far ray, and gaze
+    + pinch manipulation.</size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 533bdd8d5c92b52448ee2ecf7bd828a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b082f80c6b45164418a354f7e116f0a3, type: 2}
@@ -11654,6 +11655,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d7e2f87fefe0ba468719b15288b46e7, type: 3}
+--- !u!1 &1530487695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2351505566903569413, guid: 4d7e2f87fefe0ba468719b15288b46e7, type: 3}
+  m_PrefabInstance: {fileID: 1530487694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1530487696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530487695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6befe5fc04fa2734fb8fdac89c86cb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1530487697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530487695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728ad7fae8e460a4ba41265c7308d757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnchorPrefab: {fileID: 0}
 --- !u!1 &1551252956
 GameObject:
   m_ObjectHideFlags: 0
