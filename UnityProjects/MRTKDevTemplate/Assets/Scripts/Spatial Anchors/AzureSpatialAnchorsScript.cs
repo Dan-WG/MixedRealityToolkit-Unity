@@ -6,6 +6,7 @@ using Microsoft.Azure.SpatialAnchors.Unity;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Azure.SpatialAnchors;
+using System.Linq;
 
 [RequireComponent(typeof(SpatialAnchorManager))]
 public class AzureSpatialAnchorsScript : MonoBehaviour
@@ -38,6 +39,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         _spatialAnchorManager = GetComponent<SpatialAnchorManager>();
         _spatialAnchorManager.LogDebug += (sender, args) => Debug.Log($"ASA - Debug: {args.Message}");
         _spatialAnchorManager.Error += (sender, args) => Debug.LogError($"ASA - Error: {args.ErrorMessage}");
+        _spatialAnchorManager.AnchorLocated += SpatialAnchorManager_AnchorLocated;
     }
     // Update is called once per frame
     void Update()
@@ -86,10 +88,16 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     private async void ShortTap(Vector3 handPosition)
     {
         await _spatialAnchorManager.StartSessionAsync();
- 
+        if (!IsAnchorNearby(handPosition, out GameObject anchorGameObject))
+        {
+            //No Anchor Nearby, start session and create an anchor
             await CreateAnchor(handPosition);
-        
-   
+        }
+        else
+        {
+            //Delete nearby Anchor
+            DeleteAnchor(anchorGameObject);
+        }
     }
 
     /// <summary>
@@ -196,5 +204,93 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Callback when an anchor is located
+    /// </summary>
+    /// <param name="sender">Callback sender</param>
+    /// <param name="args">Callback AnchorLocatedEventArgs</param>
+    private void SpatialAnchorManager_AnchorLocated(object sender, AnchorLocatedEventArgs args)
+    {
+        Debug.Log($"ASA - Anchor recognized as a possible anchor {args.Identifier} {args.Status}");
 
+        if (args.Status == LocateAnchorStatus.Located)
+        {
+            //Creating and adjusting GameObjects have to run on the main thread. We are using the UnityDispatcher to make sure this happens.
+            UnityDispatcher.InvokeOnAppThread(() =>
+            {
+                // Read out Cloud Anchor values
+                CloudSpatialAnchor cloudSpatialAnchor = args.Anchor;
+
+                //Create GameObject
+                GameObject anchorGameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                anchorGameObject.transform.localScale = Vector3.one * 0.1f;
+                anchorGameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Legacy Shaders/Diffuse");
+                anchorGameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
+
+                // Link to Cloud Anchor
+                anchorGameObject.AddComponent<CloudNativeAnchor>().CloudToNative(cloudSpatialAnchor);
+                _foundOrCreatedAnchorGameObjects.Add(anchorGameObject);
+            });
+        }
+    }
+
+    /// <summary>
+    /// Deleting Cloud Anchor attached to the given GameObject and deleting the GameObject
+    /// </summary>
+    /// <param name="anchorGameObject">Anchor GameObject that is to be deleted</param>
+    private async void DeleteAnchor(GameObject anchorGameObject)
+    {
+        CloudNativeAnchor cloudNativeAnchor = anchorGameObject.GetComponent<CloudNativeAnchor>();
+        CloudSpatialAnchor cloudSpatialAnchor = cloudNativeAnchor.CloudAnchor;
+
+        Debug.Log($"ASA - Deleting cloud anchor: {cloudSpatialAnchor.Identifier}");
+
+        //Request Deletion of Cloud Anchor
+        await _spatialAnchorManager.DeleteAnchorAsync(cloudSpatialAnchor);
+
+        //Remove local references
+        _createdAnchorIDs.Remove(cloudSpatialAnchor.Identifier);
+        _foundOrCreatedAnchorGameObjects.Remove(anchorGameObject);
+        Destroy(anchorGameObject);
+
+        Debug.Log($"ASA - Cloud anchor deleted!");
+    }
+
+
+    /// <summary>
+    /// Returns true if an Anchor GameObject is within 15cm of the received reference position
+    /// </summary>
+    /// <param name="position">Reference position</param>
+    /// <param name="anchorGameObject">Anchor GameObject within 15cm of received position. Not necessarily the nearest to this position. If no AnchorObject is within 15cm, this value will be null</param>
+    /// <returns>True if a Anchor GameObject is within 15cm</returns>
+    private bool IsAnchorNearby(Vector3 position, out GameObject anchorGameObject)
+    {
+        anchorGameObject = null;
+
+        if (_foundOrCreatedAnchorGameObjects.Count <= 0)
+        {
+            return false;
+        }
+
+        //Iterate over existing anchor gameobjects to find the nearest
+        var (distance, closestObject) = _foundOrCreatedAnchorGameObjects.Aggregate(
+            new Tuple<float, GameObject>(Mathf.Infinity, null),
+            (minPair, gameobject) =>
+            {
+                Vector3 gameObjectPosition = gameobject.transform.position;
+                float distance = (position - gameObjectPosition).magnitude;
+                return distance < minPair.Item1 ? new Tuple<float, GameObject>(distance, gameobject) : minPair;
+            });
+
+        if (distance <= 0.15f)
+        {
+            //Found an anchor within 15cm
+            anchorGameObject = closestObject;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
