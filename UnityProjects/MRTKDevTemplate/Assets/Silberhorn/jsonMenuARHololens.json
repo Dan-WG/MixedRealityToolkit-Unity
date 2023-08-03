@@ -1,0 +1,36 @@
+{
+    "Detalles": [
+        {
+            "Titulo": "Titulo de Pieza",
+            "Descripcion": "Descripcion de la pieza",
+            "_videoRA": [
+                {
+                    "orden": 1,
+                    "NombreAsset": "Nombre del video",
+                    "UrlServer": "https://www.gsn-servicios-ra.com/Multimedia/barcel/LimpiezaFreidora/videos/IMG_3396.mp4",
+                    "urlLocal": "IMG_3396.mp4",
+                    "Tipo": "video"
+                }
+            ],
+            "_imagenRA": [
+                {
+                    "orden": 1,
+                    "NombreAsset": "Nombre de la imagen",
+                    "UrlServer": "https://www.gsn-servicios-ra.com/Multimedia/barcel/LimpiezaFreidora/imagenes/IMG_3347.jpg",
+                    "urlLocal": "IMG_3347.jpg",
+                    "Tipo": "imagen"
+                }
+            ],
+            "Pdf": [
+                {
+                    "orden": 1,
+                    "titulo": "Titulo del PDF",
+                    "UrlServer": "urlDelPDF",
+                    "urlLocal": "guardadoEnassets.pdf",
+                    "tipo":"pdf",
+                    "NoPagina":"34"
+                }
+            ]
+        }
+        ]
+}

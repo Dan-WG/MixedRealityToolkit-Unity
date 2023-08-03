@@ -1,38 +1,21 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
+
+using Microsoft.MixedReality.Toolkit.SpatialManipulation;
 using UnityEngine;
 
-namespace Microsoft.MixedReality.Toolkit.Examples
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
 {
-    using SpatialManipulation;
-    using UnityEngine.XR.Interaction.Toolkit;
-
-    /// <summary>
-    /// Manager class for the solver examples scene.
-    /// </summary>
     [AddComponentMenu("Scripts/MRTK/Examples/SolverExampleManager")]
     public class SolverExampleManager : MonoBehaviour
     {
         [SerializeField]
         private GameObject CustomTrackedObject = null;
-
-        [SerializeField]
-        [Tooltip("The interactor used when solving for the left hand / controller.")]
-        private XRBaseInteractor LeftInteractor = null;
-
-
-        [SerializeField]
-        [Tooltip("The interactor used when solving for the right hand / controller.")]
-        private XRBaseInteractor RightInteractor = null;
-
         private SolverHandler handler;
         private Solver currentSolver;
-        private TrackedObjectType trackedType = TrackedObjectType.Head;
 
-        /// <summary>
-        /// Get or set the type of object to be tracked.
-        /// </summary>
+        private TrackedObjectType trackedType = TrackedObjectType.Head;
         public TrackedObjectType TrackedType
         {
             get => trackedType;
@@ -48,49 +31,31 @@ namespace Microsoft.MixedReality.Toolkit.Examples
 
         private readonly Vector3 HandJointRotationFix = new Vector3(90f, 0f, 0f);
 
-        /// <summary>
-        /// A Unity event function that is called when an enabled script instance is being loaded.
-        /// </summary>
         private void Awake()
         {
             SetRadialView();
         }
 
-        /// <summary>
-        /// Method to change the tracking type to the user's head
-        /// </summary>
         public void SetTrackedHead()
         {
             TrackedType = TrackedObjectType.Head;
         }
 
-        /// <summary>
-        /// Method to change the tracking type to controller ray
-        /// </summary>
         public void SetTrackedController()
         {
             TrackedType = TrackedObjectType.ControllerRay;
         }
 
-        /// <summary>
-        /// Method to change the tracking type to the hand joint
-        /// </summary>
         public void SetTrackedHands()
         {
             TrackedType = TrackedObjectType.HandJoint;
         }
 
-        /// <summary>
-        /// Method to change the tracking type to custom
-        /// </summary>
         public void SetTrackedCustom()
         {
             TrackedType = TrackedObjectType.CustomOverride;
         }
 
-        /// <summary>
-        /// Method to change to the <see cref="RadialView"/> solver
-        /// </summary>
         public void SetRadialView()
         {
             DestroySolver();
@@ -98,9 +63,6 @@ namespace Microsoft.MixedReality.Toolkit.Examples
             AddSolver<RadialView>();
         }
 
-        /// <summary>
-        /// Method to change to the <see cref="Orbital"/> solver
-        /// </summary>
         public void SetOrbital()
         {
             DestroySolver();
@@ -109,12 +71,9 @@ namespace Microsoft.MixedReality.Toolkit.Examples
 
             // Modify properties of solver custom to this example
             var orbital = currentSolver as Orbital;
-            orbital.LocalOffset = new Vector3(0.0f, -0f, 1.0f);
+            orbital.LocalOffset = new Vector3(0.0f, -0.5f, 1.0f);
         }
 
-        /// <summary>
-        /// Method to change to the <see cref="SurfaceMagnetism"/> solver
-        /// </summary>
         public void SetSurfaceMagnetism()
         {
             DestroySolver();
@@ -149,15 +108,6 @@ namespace Microsoft.MixedReality.Toolkit.Examples
                 if (CustomTrackedObject != null)
                 {
                     handler.TransformOverride = CustomTrackedObject.transform;
-                }
-
-                if (LeftInteractor != null)
-                {
-                    handler.LeftInteractor = LeftInteractor;
-                }
-                if (RightInteractor != null)
-                {
-                    handler.LeftInteractor = RightInteractor;
                 }
             }
         }
