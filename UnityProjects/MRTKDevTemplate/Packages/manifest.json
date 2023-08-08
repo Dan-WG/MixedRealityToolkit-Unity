@@ -1,7 +1,8 @@
 {
   "dependencies": {
-    "com.atteneder.gltfast": "https://github.com/atteneder/glTFast.git#v4.8.3",
-    "com.atteneder.ktx": "https://github.com/atteneder/KtxUnity.git#v2.1.2",
+    "com.atteneder.gltfast": "file:C:/Users/PC/Downloads/glTFast-main",
+    "com.atteneder.ktx": "file:C:/Users/PC/Downloads/KtxUnity-main",
+    "com.microsoft.azure.remote-rendering": "file:MixedReality/com.microsoft.azure.remote-rendering-1.2.3.tgz",
     "com.microsoft.azure.spatial-anchors-sdk.core": "file:MixedReality/com.microsoft.azure.spatial-anchors-sdk.core-2.14.1.tgz",
     "com.microsoft.azure.spatial-anchors-sdk.windows": "file:MixedReality/com.microsoft.azure.spatial-anchors-sdk.windows-2.14.1.tgz",
     "com.microsoft.mixedreality.openxr": "file:MixedReality/com.microsoft.mixedreality.openxr-1.8.1.tgz",
@@ -70,8 +71,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.microsoft.azure.remote-rendering": "file:MixedReality/com.microsoft.azure.remote-rendering-1.2.3.tgz"
+    "com.unity.modules.xr": "1.0.0"
   },
   "testables": [
     "com.unity.inputsystem",

@@ -293,12 +293,39 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// </summary>
     public async void JoinRemoteSession()
     {
-        //Implement me
+        //If there's a session available that previously belonged to us, and it's ready, use it. Otherwise start a new session.
+        RenderingSessionProperties joinResult;
+        if (await IsSessionAvailable(LastUsedSessionID))
+        {
+            CurrentCoordinatorState = RemoteRenderingState.ConnectingToExistingRemoteSession;
+            joinResult = await ARRSessionService.OpenSession(LastUsedSessionID);
+        }
+        else
+        {
+            CurrentCoordinatorState = RemoteRenderingState.ConnectingToNewRemoteSession;
+            joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationOptions(renderingSessionVmSize, (int)maxLeaseHours, (int)maxLeaseMinutes));
+        }
+
+        if (joinResult.Status == RenderingSessionStatus.Ready || joinResult.Status == RenderingSessionStatus.Starting)
+        {
+            LastUsedSessionID = joinResult.Id;
+        }
+        else
+        {
+            //The session should be ready or starting, if it's not, something went wrong
+            await ARRSessionService.StopSession();
+            if (LastUsedSessionID == SessionIDOverride)
+                SessionIDOverride = "";
+            CurrentCoordinatorState = RemoteRenderingState.NoSession;
+        }
     }
 
     public async void StopRemoteSession()
     {
-        //Implement me
+        if (ARRSessionService.CurrentActiveSession != null)
+        {
+            await ARRSessionService.CurrentActiveSession.StopAsync();
+        }
     }
 
     private async Task<bool> IsSessionAvailable(string sessionID)
