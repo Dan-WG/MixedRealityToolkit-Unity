@@ -357,14 +357,35 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <summary>
     /// Connects the local runtime to the current active session, if there's a session available
     /// </summary>
+    /// <summary>
+    /// Connects the local runtime to the current active session, if there's a session available
+    /// </summary>
     public async void ConnectRuntimeToRemoteSession()
     {
-        //Implement me
+        if (ARRSessionService == null || ARRSessionService.CurrentActiveSession == null)
+        {
+            Debug.LogError("Not ready to connect runtime");
+            return;
+        }
+
+        // Connect the local runtime to the currently connected session
+        // This session is set when connecting to a new or existing session
+
+        ARRSessionService.CurrentActiveSession.ConnectionStatusChanged += OnLocalRuntimeStatusChanged;
+        await ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
     }
 
     public void DisconnectRuntimeFromRemoteSession()
     {
-        //Implement me
+        if (ARRSessionService == null || ARRSessionService.CurrentActiveSession == null || ARRSessionService.CurrentActiveSession.ConnectionStatus != ConnectionStatus.Connected)
+        {
+            Debug.LogError("Runtime not connected!");
+            return;
+        }
+
+        ARRSessionService.CurrentActiveSession.Disconnect();
+        ARRSessionService.CurrentActiveSession.ConnectionStatusChanged -= OnLocalRuntimeStatusChanged;
+        CurrentCoordinatorState = RemoteRenderingState.RemoteSessionReady;
     }
 
     /// <summary>
@@ -385,7 +406,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <returns>An awaitable Remote Rendering Entity</returns>
     public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
     {
-        //Implement me
+        //Implement 
         return null;
     }
 
