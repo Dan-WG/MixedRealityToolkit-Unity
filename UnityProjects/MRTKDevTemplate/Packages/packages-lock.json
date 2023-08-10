@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.atteneder.gltfast": {
-      "version": "file:C:/Users/PC/Downloads/glTFast-main",
+      "version": "file:C:/Users/GSN PG/Downloads/glTFast-main",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -12,7 +12,7 @@
       }
     },
     "com.atteneder.ktx": {
-      "version": "file:C:/Users/PC/Downloads/KtxUnity-main",
+      "version": "file:C:/Users/GSN PG/Downloads/KtxUnity-main",
       "depth": 0,
       "source": "local",
       "dependencies": {

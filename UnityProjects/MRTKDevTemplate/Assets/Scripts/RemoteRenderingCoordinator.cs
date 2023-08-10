@@ -1,6 +1,3 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
-
 using Microsoft.Azure.RemoteRendering;
 using Microsoft.Azure.RemoteRendering.Unity;
 using System;
@@ -400,14 +397,58 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <summary>
     /// Loads a model into the remote session for rendering
     /// </summary>
-    /// <param name="modelPath">The model's path</param>
-    /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
+    /// <param name="modelName">The model's path</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
+    /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
     public async Task<Entity> LoadModel(string modelPath, Transform parent = null, Action<float> progress = null)
     {
-        //Implement 
-        return null;
+        //Create a root object to parent a loaded model to
+        var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
+
+        //Get the game object representation of this entity
+        var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
+
+        //Ensure the entity will sync its transform with the server
+        var sync = modelGameObject.GetComponent<RemoteEntitySyncObject>();
+        sync.SyncEveryFrame = true;
+
+        //Parent the new object under the defined parent
+        if (parent != null)
+        {
+            modelGameObject.transform.SetParent(parent, false);
+            modelGameObject.name = parent.name + "_Entity";
+        }
+
+        //Load a model that will be parented to the entity
+        var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
+        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams, progress);
+        var result = await loadModelAsync;
+        return modelEntity;
+    }
+
+    private bool loadingTestModel = false;
+    [ContextMenu("Load Test Model")]
+    public async void LoadTestModel()
+    {
+        if (CurrentCoordinatorState != RemoteRenderingState.RuntimeConnected)
+        {
+            Debug.LogError("Please wait for the runtime to connect before loading the test model. Try again later.");
+            return;
+        }
+        if (loadingTestModel)
+        {
+            Debug.Log("Test model already loading or loaded!");
+            return;
+        }
+        loadingTestModel = true;
+
+        // Create a parent object to use for positioning
+        GameObject testParent = new GameObject("TestModelParent");
+        testParent.transform.position = new Vector3(0f, 0f, 3f);
+
+        // The 'built in engine path' is a special path that references a test model built into Azure Remote Rendering.
+        await LoadModel("builtin://Engine", testParent.transform, (progressValue) => Debug.Log($"Loading Test Model progress: {Math.Round(progressValue * 100, 2)}%"));
     }
 
     private async void OnRemoteSessionStatusChanged(ARRServiceUnity caller, RenderingSession session)
