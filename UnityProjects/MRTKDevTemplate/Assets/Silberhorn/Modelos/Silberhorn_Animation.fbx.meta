@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 45f2bee449d15b841a6904f583ea05b6
+ModelImporter:
+  serializedVersion: 20300
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Botones
+    second: {fileID: 2100000, guid: 8a02901c2ca737348a6e07287652eba2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Broches_Azules
+    second: {fileID: 2100000, guid: 266a5003116abca489e57983a9cbbf76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Broches_Cables
+    second: {fileID: 2100000, guid: 45027291e43dfbf459815c06a1c9c8af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Cajas_Conectores
+    second: {fileID: 2100000, guid: 351e79442c66e514ba4be466d802752b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Cajas_Control
+    second: {fileID: 2100000, guid: bea85df4eeec21644948cb0f8190f0ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Cajas_Huecas
+    second: {fileID: 2100000, guid: 5ff469d5ca737a74da763fcc2ac7f7f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Codos
+    second: {fileID: 2100000, guid: 62019f3dda6abb541a99794b1a58e1e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Conectores
+    second: {fileID: 2100000, guid: 2634ee24f15d617489cdc3b2ea6191c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Entrada_Tubos_1
+    second: {fileID: 2100000, guid: c9bff2b69dc9fa743971430b29851e7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Entrada_Tubos_2
+    second: {fileID: 2100000, guid: 046f3a0f314022a448af2abe0e92ba7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_LCD
+    second: {fileID: 2100000, guid: 97eb39cdef1d0884588653cb930779f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Laminas_Motor
+    second: {fileID: 2100000, guid: e3be75b4800278442ad2a80d21a95bfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Laminas_Soportes
+    second: {fileID: 2100000, guid: 4043fe173dc7a0740b8f97444b3fdc06, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Llaves
+    second: {fileID: 2100000, guid: cf235a62b9fbdff47b3b8b4ed81f969e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Luces
+    second: {fileID: 2100000, guid: 2ebd712ddc739f740baff91318b73a14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Manijas
+    second: {fileID: 2100000, guid: b63e8d0d0ae824e4da41cabbe642b541, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Motores
+    second: {fileID: 2100000, guid: 98ff58c9af26966408609851e48b89ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Panel_Transparente
+    second: {fileID: 2100000, guid: 3284367dc41f9f445b2dcc426d029681, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Paneles
+    second: {fileID: 2100000, guid: 057965b5035bd9c43bb9ef7bab88cd91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Paredes
+    second: {fileID: 2100000, guid: 721e7d1d0a56a7441b333c6a019151dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Piezas_Adicionales
+    second: {fileID: 2100000, guid: 03cd1dab92656c347a3335df939ad66a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Rejas
+    second: {fileID: 2100000, guid: 4c219e71053e4bf4c8ecd099c4de3731, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Rodillos
+    second: {fileID: 2100000, guid: 1dcefdc87274d3841bc294c971d43969, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Seguros_Naranja
+    second: {fileID: 2100000, guid: 203a7db9f2fdb1648a014cb43a644629, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Soportes
+    second: {fileID: 2100000, guid: d7a9bfc65f176e943a9786e887aa8ccf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: A_Tubos
+    second: {fileID: 2100000, guid: c03cf166df78ce341ac12df516920072, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Canasta_Mat
+    second: {fileID: 2100000, guid: 7058aa73fe8de5c44a831f23e7ad99ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ch31_body
+    second: {fileID: 2100000, guid: e4c6f8de68b6de3459cdcd8de0675362, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ch31_hair
+    second: {fileID: 2100000, guid: e4c6f8de68b6de3459cdcd8de0675362, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Motor_Low
+    second: {fileID: 2100000, guid: 861ae301d3b1a2440b3296e4aa630909, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

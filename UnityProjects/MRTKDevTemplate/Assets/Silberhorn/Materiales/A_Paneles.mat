@@ -37,18 +37,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_162416c0550a41a6b70329524957b7fc:
-        m_Texture: {fileID: 2800000, guid: 22d3c89f49b5fb54ba63fee7d385a466, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_29d5246bfbca4898a0199f1c073e727e:
-        m_Texture: {fileID: 2800000, guid: 94fcd90e4c390b842be2159286c1df9e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_b4deda4ce3e4429e9efeea83567be6b3:
-        m_Texture: {fileID: 2800000, guid: 1c1e6b962c0d9f84282a3e08fe6576bf, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 287f6bcb383f3264d8f3b96ed10da4f7, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -107,7 +95,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_1ad74420a3df41828a0159937e1ea461: 4
+    - Vector1_1ca60de7efd242689bc16dbf8f80d510: 0
     - _AlphaClip: 1
     - _Blend: 0
     - _BumpScale: 1
@@ -118,6 +106,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Emission_Strenght: 4
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
@@ -126,6 +115,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Pulse: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -136,6 +126,7 @@ Material:
     - _Surface: 0
     - _UVSec: 0
     - _WorkflowMode: 1
+    - _Xray: 0
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
