@@ -1,23 +1,25 @@
 {
   "dependencies": {
     "com.atteneder.gltfast": {
-      "version": "file:C:/Users/PC/Downloads/glTFast-main",
+      "version": "https://github.com/atteneder/glTFast.git",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.unitywebrequest": "1.0.0",
         "com.unity.mathematics": "1.2.6",
         "com.unity.burst": "1.6.6"
-      }
+      },
+      "hash": "5c36f4405012b13ad14ec871b77ba063c53cbbc3"
     },
     "com.atteneder.ktx": {
-      "version": "file:C:/Users/PC/Downloads/KtxUnity-main",
+      "version": "https://github.com/atteneder/KtxUnity.git",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.modules.unitywebrequest": "1.0.0"
-      }
+      },
+      "hash": "f8b5db54f1aacce5372f2b7dbb4f362da4c1ccdb"
     },
     "com.microsoft.azure.remote-rendering": {
       "version": "file:MixedReality/com.microsoft.azure.remote-rendering-1.2.3.tgz",
